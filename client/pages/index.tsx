@@ -1,9 +1,9 @@
-import type { NextPage } from 'next'
+import React from 'react';
+import type { NextPage } from 'next';
+import { Text } from '@chakra-ui/react';
 
-const Home: NextPage = () => {
-  return (
-		<div>Testing</div>
-  )
-}
+const Home: NextPage = () => (
+	<div>testing</div>
+);
 
-export default Home
+export default Home;
