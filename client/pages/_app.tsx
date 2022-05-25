@@ -1,19 +1,17 @@
+import React from 'react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import type { AppProps } from 'next/app';
 
-import { ChakraProvider } from '@chakra-ui/react'
-import { extendTheme } from '@chakra-ui/react'
-import type { AppProps } from 'next/app'
+const MyApp = ( { Component, pageProps } : AppProps ) => {
+	const colors = {
+	};
 
-function MyApp({ Component, pageProps } : AppProps) {
+	const theme = extendTheme( { colors } );
+	return (
+		<ChakraProvider theme={theme}>
+			<Component {...pageProps} />
+		</ChakraProvider>
+	);
+};
 
-const colors = {
-}
-
-const theme = extendTheme({ colors });
-  return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  )
-}
-
-export default MyApp
+export default MyApp;
