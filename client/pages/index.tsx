@@ -1,9 +1,12 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import { Text } from '@chakra-ui/react';
+import { Container, Text } from '@chakra-ui/react';
+import Header from '../components/Header';
 
 const Home: NextPage = () => (
-	<div>testing</div>
+	<Container maxW="container.xl">
+		<Header />
+	</Container>
 );
 
 export default Home;
