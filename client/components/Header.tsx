@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
 	Text, Heading, Flex, Button, Fade,
 } from '@chakra-ui/react';
 import Subheading from './Subheading';
 
-const Header = () => (
+const Header : FC = () => (
 	<Flex height="100vh" alignItems="center" pl={40}>
 		<Fade
 			in
@@ -18,7 +18,7 @@ const Header = () => (
 				I am a graduate developer specializing in creating bespoke web experiences.
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut mattis lectus.
 			</Text>
-			<Button variant="outline" colorScheme="red">Get in touch</Button>
+			<Button fontFamily="button" variant="outline" colorScheme="red">Get in touch</Button>
 		</Fade>
 	</Flex>
 );
