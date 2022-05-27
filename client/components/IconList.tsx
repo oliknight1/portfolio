@@ -3,18 +3,11 @@ import {
 } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { GithubIcon, LinkedInIcon } from '../utils/icons';
+import { vertical_line } from '../styles/general';
 
 const IconList : FC = () => (
 	<Flex pos="fixed" bottom={6} left={20} flexDir="column">
-		<VStack _after={{
-			content: '""',
-			display: 'block',
-			width: '1px',
-			height: '100px',
-			margin: '0px auto',
-			background: 'white',
-		}}
-		>
+		<VStack _after={{ ...vertical_line, marginTop: '15px' }}>
 			<Link href="https://www.linkedin.com/in/oliver-knight-13804b176/" isExternal>
 				<IconButton variant="unstyled" _hover={{ color: 'brand.red' }} aria-label="LinkedIn" icon={<LinkedInIcon w={5} h={5} />} />
 			</Link>

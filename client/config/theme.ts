@@ -22,7 +22,7 @@ const theme = extendTheme( {
 	fonts: {
 		heading: '\'Open Sans\', sans-serif',
 		subheading: '\'Source Code Pro\', monospace',
-		button: '\'Source Code Pro\', monospace',
+		monospace: '\'Source Code Pro\', monospace',
 		body: '\'Open Sans\', sans-serif',
 	},
 	styles: {
