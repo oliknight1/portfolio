@@ -3,11 +3,11 @@ import type { NextPage } from 'next';
 import { Container } from '@chakra-ui/react';
 import Header from '../components/Header';
 import Email from '../components/Email';
-import IconList from '../components/IconList';
+import SocialsList from '../components/SocialsList';
 
 const Home: NextPage = () => (
 	<Container maxW="container.xl">
-		<IconList />
+		<SocialsList />
 		<Email />
 		<Header />
 	</Container>
