@@ -4,6 +4,7 @@ import { Container, Fade } from '@chakra-ui/react';
 import Header from '../components/Header';
 import Email from '../components/Email';
 import SocialsList from '../components/SocialsList';
+import AboutMe from '../components/AboutMe';
 
 const Home: NextPage = () => (
 	<Container maxW="container.xl">
@@ -24,6 +25,8 @@ const Home: NextPage = () => (
 			<SocialsList />
 			<Email />
 		</Fade>
+		<AboutMe />
+
 	</Container>
 );
 
