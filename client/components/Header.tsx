@@ -1,17 +1,12 @@
 import React, { FC } from 'react';
 import {
-	Text, Heading, Flex, Button, Fade,
+	Text, Heading, Flex, Button,
 } from '@chakra-ui/react';
 import Subheading from './Subheading';
 
 const Header : FC = () => (
 	<Flex height="100vh" alignItems="center" pl={40}>
-		<Fade
-			in
-			transition={{
-				enter: { duration: 1.5 },
-			}}
-		>
+		<div>
 			<Subheading mb={4}>Hi, my name is</Subheading>
 			<Heading as="h1" fontWeight="medium" fontSize="6rem" mb={6}>Oli Knight</Heading>
 			<Text maxW="xl" mb={8}>
@@ -19,7 +14,7 @@ const Header : FC = () => (
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut mattis lectus.
 			</Text>
 			<Button fontFamily="monospace" letterSpacing="wide" variant="outline" colorScheme="red">Get in touch</Button>
-		</Fade>
+		</div>
 	</Flex>
 );
 
