@@ -30,20 +30,19 @@ const AboutMe : FC = () => {
 			initial="hidden"
 			whileInView="visible"
 			viewport={{ once: true, amount: 0.6 }}
-			transition={{ delay: 5 }}
 			variants={{
-				visible: { opacity: 1 },
+				visible: { opacity: 1, type: 'spring' },
 				hidden: { opacity: 0 },
 			}}
 		>
-			<Subheading mb={6}>About Me</Subheading>
+			<Subheading mb={6} fontSize="4rem">About Me</Subheading>
 			<div dangerouslySetInnerHTML={{ __html: body }} />
 			<SimpleGrid columns={3} spacingY={4}>
 				{
 					technologies.map( ( technology ) => (
 						<Flex alignItems="center" key={technology.id}>
 							<ChevronRightIcon color="brand.red" w={4} h={4} mr={3} />
-							<Text _hover={{ color: 'brand.red' }} w="fit-content" fontFamily="monospace" cursor="default">{technology.attributes.title}</Text>
+							<Text _hover={{ color: 'brand.red' }} w="fit-content" fontFamily="monospace" cursor="default" fontSize="lg">{technology.attributes.title}</Text>
 						</Flex>
 					) )
 				}
