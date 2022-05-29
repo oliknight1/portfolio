@@ -4,11 +4,12 @@ import {
 import axios from 'axios';
 import React, { FC, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Technology } from '../types';
 import Subheading from './Subheading';
 
 const AboutMe : FC = () => {
-	const [ body, set_body ] = useState<string>();
+	const [ body, set_body ] = useState<string>( '' );
 	const [ technologies, set_technologies ] = useState<Technology[]>( [] );
 	useEffect( () => {
 		const get_data = async () => {
@@ -20,7 +21,6 @@ const AboutMe : FC = () => {
 		get_data();
 	}, [] );
 
-	console.log( body );
 	return (
 		<Flex
 			as={motion.div}
@@ -37,11 +37,14 @@ const AboutMe : FC = () => {
 			}}
 		>
 			<Subheading mb={6}>About Me</Subheading>
-			<Text mb={10}>{body}</Text>
+			<div dangerouslySetInnerHTML={{ __html: body }} />
 			<SimpleGrid columns={3} spacingY={4}>
 				{
 					technologies.map( ( technology ) => (
-						<Text _hover={{ color: 'brand.red' }} w="fit-content" key={technology.id} fontFamily="monospace" cursor="default">{technology.attributes.title}</Text>
+						<Flex alignItems="center" key={technology.id}>
+							<ChevronRightIcon color="brand.red" w={4} h={4} mr={3} />
+							<Text _hover={{ color: 'brand.red' }} w="fit-content" fontFamily="monospace" cursor="default">{technology.attributes.title}</Text>
+						</Flex>
 					) )
 				}
 			</SimpleGrid>
