@@ -4,15 +4,16 @@
   "info": {
     "singularName": "about-me",
     "pluralName": "about-mes",
-    "displayName": "About Me"
+    "displayName": "About Me",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
     "body": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }

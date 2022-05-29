@@ -6,7 +6,7 @@ import {
 import Subheading from './Subheading';
 
 const Header : FC = () => (
-	<Flex height="100vh" alignItems="center" pl={40}>
+	<Flex height="100vh" alignItems="center">
 		<div>
 			<Subheading mb={4}>Hi, my name is</Subheading>
 			<Heading as="h1" fontWeight="medium" fontSize="6rem" mb={6}>Oli Knight</Heading>

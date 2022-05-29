@@ -7,7 +7,7 @@ import SocialsList from '../components/SocialsList';
 import AboutMe from '../components/AboutMe';
 
 const Home: NextPage = () => (
-	<Container maxW="container.xl">
+	<Container maxW="container.md">
 		<Fade
 			in
 			transition={{
