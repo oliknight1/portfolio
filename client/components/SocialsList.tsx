@@ -1,19 +1,14 @@
 import {
-	Flex, VStack, IconButton, Link, IconProps,
+	Flex, VStack,
 } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { GithubIcon, LinkedInIcon } from '../utils/icons';
 import { vertical_line } from '../styles/general';
-
-type SocialIcon = {
-	id: number,
-	name: string,
-	icon : React.ReactElement<any, string | React.JSXElementConstructor<any>>,
-	url: string
-}
+import { LinkIcon } from '../types';
+import LinkIconButton from './LinkIconButton';
 
 const SocialsList: FC = () => {
-	const icons : SocialIcon[] = [
+	const icons : LinkIcon[] = [
 		{
 			id: 0,
 			name: 'LinkedIn',
@@ -32,9 +27,12 @@ const SocialsList: FC = () => {
 			<VStack _after={{ ...vertical_line, marginTop: '15px' }}>
 				{
 					icons.map( ( icon ) => (
-						<Link href={icon.url} isExternal key={icon.id}>
-							<IconButton variant="unstyled" _hover={{ color: 'brand.red', transform: 'translateY(-5px) scale(1.1)' }} aria-label={icon.name} icon={icon.icon} />
-						</Link>
+						<LinkIconButton
+							name={icon.name}
+							icon={icon.icon}
+							url={icon.url}
+							key={icon.id}
+						/>
 
 					) )
 				}

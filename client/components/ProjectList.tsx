@@ -30,6 +30,10 @@ const ProjectList : FC = () => {
 							technologies={data.technologies.data}
 							subheading={data.subheading}
 							reverse={i % 2 !== 0}
+							github_link={data.github_link}
+							live_link={data.live_link}
+							project_click_link={data.project_click_link}
+							is_cold_boot={data.is_cold_boot}
 						/>
 					);
 				} )

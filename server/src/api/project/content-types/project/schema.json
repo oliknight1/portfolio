@@ -13,12 +13,13 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -36,6 +37,21 @@
     },
     "subheading": {
       "type": "string"
+    },
+    "github_link": {
+      "type": "string"
+    },
+    "live_link": {
+      "type": "string"
+    },
+    "project_click_link": {
+      "type": "string",
+      "required": true
+    },
+    "is_cold_boot": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

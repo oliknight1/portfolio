@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface Technology {
 	id: number,
 	attributes: {
@@ -28,6 +30,10 @@ export interface ProjectData {
 	title: string,
 	subheading: string,
 	description: string,
+	github_link: string,
+	live_link: string,
+	project_click_link: string,
+	is_cold_boot: boolean
 	image: {
 		data : [{
 			attributes: Image
@@ -41,4 +47,11 @@ export interface ProjectData {
 export interface ProjectRequest {
 	id: number,
 	attributes: ProjectData
+}
+
+export interface LinkIcon {
+	id?: number,
+	name: string,
+	icon : React.ReactElement<any, string | React.JSXElementConstructor<any>>,
+	url: string
 }
