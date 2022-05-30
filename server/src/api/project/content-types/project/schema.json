@@ -28,6 +28,11 @@
     },
     "description": {
       "type": "text"
+    },
+    "technologies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::technology.technology"
     }
   }
 }

@@ -13,10 +13,10 @@ const AboutMe : FC = () => {
 	const [ technologies, set_technologies ] = useState<Technology[]>( [] );
 	useEffect( () => {
 		const get_data = async () => {
-			const text_request = await axios.get( 'http://localhost:1337/api/about-me' );
-			const technology_request = await axios.get( 'http://localhost:1337/api/technologies' );
-			set_body( text_request.data.data.attributes.body );
-			set_technologies( technology_request.data.data );
+			const request = await axios.get( 'http://localhost:1337/api/about-me?populate=*' );
+			const { attributes } = await request.data.data;
+			set_technologies( attributes.technologies.data );
+			set_body( attributes.body );
 		};
 		get_data();
 	}, [] );

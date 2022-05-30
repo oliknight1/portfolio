@@ -2,9 +2,10 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { Container, Fade } from '@chakra-ui/react';
 import Header from '../components/Header';
-import Email from '../components/Email';
 import SocialsList from '../components/SocialsList';
 import AboutMe from '../components/AboutMe';
+import Email from '../components/Email';
+import ProjectList from '../components/ProjectList';
 
 const Home: NextPage = () => (
 	<Container maxW="container.lg">
@@ -26,6 +27,7 @@ const Home: NextPage = () => (
 			<Email />
 		</Fade>
 		<AboutMe />
+		<ProjectList />
 
 	</Container>
 );
