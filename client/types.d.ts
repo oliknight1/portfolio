@@ -5,11 +5,23 @@ export interface Technology {
 	}
 }
 
+export interface Format {
+	url: string,
+	width: number,
+	height: number
+}
+
 export interface Image {
 
 	url: string,
 	height: number,
-	width: number
+	width: number,
+	formats: {
+		thumbnail: Format,
+		large: Format,
+		medium: Format,
+		small: Format,
+	}
 }
 
 export interface ProjectData {

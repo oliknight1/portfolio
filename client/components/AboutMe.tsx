@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Technology } from '../types';
 import Subheading from './Subheading';
+import DarkText from './DarkText';
 
 const AboutMe : FC = () => {
 	const [ body, set_body ] = useState<string>( '' );
@@ -42,7 +43,7 @@ const AboutMe : FC = () => {
 					technologies.map( ( technology ) => (
 						<Flex alignItems="center" key={technology.id}>
 							<ChevronRightIcon color="brand.red" w={4} h={4} mr={3} />
-							<Text _hover={{ color: 'brand.red' }} w="fit-content" fontFamily="monospace" cursor="default" fontSize="lg">{technology.attributes.title}</Text>
+							<DarkText>{technology.attributes.title}</DarkText>
 						</Flex>
 					) )
 				}

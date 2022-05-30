@@ -14,11 +14,11 @@ const ProjectList : FC = () => {
 		fetch_data();
 	}, [] );
 	return (
-		<VStack minH="100vh">
+		<VStack minH="100vh" spacing={28}>
 			{
 				projects.map( ( project ) => {
 					const data : ProjectData = project.attributes;
-					const image = data.image.data[0].attributes;
+					const image = data.image.data[0].attributes.formats.medium;
 
 					return (
 						<Project

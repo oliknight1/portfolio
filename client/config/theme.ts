@@ -20,7 +20,7 @@ const theme = extendTheme( {
 	config,
 	colors,
 	fonts: {
-		heading: '\'Open Sans\', sans-serif',
+		heading: '\'Inter\', sans-serif',
 		subheading: '\'Source Code Pro\', monospace',
 		monospace: '\'Source Code Pro\', monospace',
 		body: '\'Open Sans\', sans-serif',
