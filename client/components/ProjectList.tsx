@@ -19,7 +19,6 @@ const ProjectList : FC = () => {
 				projects.map( ( project ) => {
 					const data : ProjectData = project.attributes;
 					const image = data.image.data[0].attributes.formats.medium;
-
 					return (
 						<Project
 							key={project.id}
@@ -29,6 +28,7 @@ const ProjectList : FC = () => {
 							image_height={image.height}
 							image_width={image.width}
 							technologies={data.technologies.data}
+							subheading={data.subheading}
 						/>
 					);
 				} )

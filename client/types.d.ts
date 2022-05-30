@@ -26,6 +26,7 @@ export interface Image {
 
 export interface ProjectData {
 	title: string,
+	subheading: string,
 	description: string,
 	image: {
 		data : [{

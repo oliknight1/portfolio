@@ -33,6 +33,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::technology.technology"
+    },
+    "subheading": {
+      "type": "string"
     }
   }
 }
