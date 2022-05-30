@@ -16,7 +16,7 @@ const ProjectList : FC = () => {
 	return (
 		<VStack minH="100vh" spacing={28}>
 			{
-				projects.map( ( project ) => {
+				projects.map( ( project, i ) => {
 					const data : ProjectData = project.attributes;
 					const image = data.image.data[0].attributes.formats.medium;
 					return (
@@ -29,6 +29,7 @@ const ProjectList : FC = () => {
 							image_width={image.width}
 							technologies={data.technologies.data}
 							subheading={data.subheading}
+							reverse={i % 2 !== 0}
 						/>
 					);
 				} )

@@ -15,22 +15,23 @@ interface ProjectProps {
 	image_url: string,
 	image_height: number,
 	image_width: number,
-	technologies: Technology[]
+	technologies: Technology[],
+	reverse: boolean
 }
 
 const Project : FC<ProjectProps> = ( {
-	title, subheading, description, image_url, image_height, image_width, technologies,
+	title, subheading, description, image_url, image_height, image_width, technologies, reverse,
 } ) => (
-	<Flex>
+	<Flex flexDir={reverse ? 'row-reverse' : 'row'}>
 		<div>
 			<Image src={`http://localhost:1337${image_url}`} height={image_height} width={image_width} style={{ zIndex: -1 }} />
 		</div>
 		<Flex flexDir="column">
-			<Box mb="20%">
-				<Heading as="h3" textAlign="right" fontWeight="normal" mb={1}>{title}</Heading>
-				<Subheading fontSize="xl" textAlign="right" color="brand.red">{subheading}</Subheading>
+			<Box mb="20%" textAlign={reverse ? 'left' : 'right'}>
+				<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
+				<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 			</Box>
-			<Box bg="brand.red" borderRadius="md" py={8} px={6} w="lg" ml="-10vw">
+			<Box bg="brand.red" borderRadius="md" py={8} px={6} w="lg" ml={reverse ? 0 : '-10vw'} mr={reverse ? '-10vw' : 0}>
 				<Text fontSize="lg">{description}</Text>
 			</Box>
 
