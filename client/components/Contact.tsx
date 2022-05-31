@@ -19,7 +19,7 @@ const Contact : FC = () => (
 		id="contact"
 	>
 		<Flex flexDir="column">
-			<Heading fontWeight="normal" mb={6}>Get in touch!</Heading>
+			<Heading fontWeight="normal" mb={6} fontSize="4rem">Get in touch!</Heading>
 			<Text w="2xl" fontSize="xl" fontWeight="light" mb={12}>
 				I'm currently searching for my next step in my career as a software developer,
 				and I'm eager to het working on some great projects!
@@ -27,7 +27,7 @@ const Contact : FC = () => (
 				Send me an email if you're looking for some new energy for your team!
 			</Text>
 			<Link href="mailto:olidknight@gmail.com">
-				<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<EmailIcon />}>Get in touch!</Button>
+				<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<EmailIcon />}>Say hi!</Button>
 			</Link>
 		</Flex>
 	</Center>

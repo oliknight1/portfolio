@@ -83,8 +83,8 @@ const Project : FC<ProjectProps> = ( {
 					<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 				</Box>
-				<Box bg="brand.red" borderRadius="md" py={8} px={6} w="lg" ml={reverse ? 0 : '-10vw'} mr={reverse ? '-10vw' : 0} color="black">
-					<Text fontSize="lg">{description}</Text>
+				<Box bg="brand.red" borderRadius="md" py={8} px={6} w="lg" ml={reverse ? 0 : '-10vw'} mr={reverse ? '-10vw' : 0} color="black" fontWeight="light">
+					<Text fontSize="xl">{description}</Text>
 				</Box>
 
 				<HStack pl={2.5} spacing={4} mt={2} justify={reverse ? 'start' : 'end'}>

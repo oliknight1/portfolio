@@ -11,7 +11,7 @@ const Header : FC = () => (
 			<Subheading mb={4}>Hi, my name is</Subheading>
 			<Heading as="h1" fontWeight="medium" fontSize="6rem">Oli Knight</Heading>
 			<Heading as="h2" fontWeight="medium" fontSize="4rem" mb={6} opacity="0.3">Graduate Software Developer</Heading>
-			<Text maxW="xl" mb={8}>
+			<Text maxW="xl" mb={8} fontSize="xl" fontWeight="light">
 				I am a graduate <Text as="span" color="brand.red">developer </Text>
 				specializing in creating bespoke web experiences.
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut mattis lectus.
@@ -27,7 +27,8 @@ const Header : FC = () => (
 				}}
 				variant="outline"
 				colorScheme="red"
-			>Get in touch
+			>
+				Get in touch
 			</Button>
 		</div>
 	</Flex>
