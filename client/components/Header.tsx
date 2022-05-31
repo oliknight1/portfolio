@@ -16,7 +16,7 @@ const Header : FC = () => (
 				specializing in creating bespoke web experiences.
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut mattis lectus.
 			</Text>
-			<Button fontFamily="monospace" letterSpacing="wide" variant="outline" colorScheme="red">Get in touch</Button>
+			<Button variant="outline" colorScheme="red">Get in touch</Button>
 		</div>
 	</Flex>
 );

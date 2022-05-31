@@ -6,6 +6,7 @@ import SocialsList from '../components/SocialsList';
 import AboutMe from '../components/AboutMe';
 import Email from '../components/Email';
 import ProjectList from '../components/ProjectList';
+import Contact from '../components/Contact';
 
 const Home: NextPage = () => (
 	<Container maxW="container.lg">
@@ -28,6 +29,7 @@ const Home: NextPage = () => (
 		</Fade>
 		<AboutMe />
 		<ProjectList />
+		<Contact />
 
 	</Container>
 );

@@ -36,7 +36,7 @@ const AboutMe : FC = () => {
 				hidden: { opacity: 0 },
 			}}
 		>
-			<Subheading mb={6} fontSize="4rem">About Me</Subheading>
+			<Subheading mb={6} fontSize="4rem" fontFamily="heading" fontWeight="normal">About Me</Subheading>
 			<div dangerouslySetInnerHTML={{ __html: body }} />
 			<SimpleGrid columns={3} spacingY={4}>
 				{
