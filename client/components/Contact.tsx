@@ -16,6 +16,7 @@ const Contact : FC = () => (
 			visible: { opacity: 1 },
 			hidden: { opacity: 0 },
 		}}
+		id="contact"
 	>
 		<Flex flexDir="column">
 			<Heading fontWeight="normal" mb={6}>Get in touch!</Heading>
