@@ -2,6 +2,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
 	Box, Center, Flex, Heading, HStack, IconButton, Link, Text, Tooltip,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
 import { Technology } from '../types';
@@ -41,7 +42,17 @@ const Project : FC<ProjectProps> = ( {
 } ) => {
 	const [ display_overlay, set_display_overaly ] = useState<boolean>( true );
 	return (
-		<Flex flexDir={reverse ? 'row-reverse' : 'row'}>
+		<Flex
+			flexDir={reverse ? 'row-reverse' : 'row'}
+			as={motion.div}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.6 }}
+			variants={{
+				visible: { opacity: 1 },
+				hidden: { opacity: 0 },
+			}}
+		>
 			<Box pos="relative">
 				<Tooltip
 					label="This project is hosted on a cold start server, please allow time for the server to boot up"
