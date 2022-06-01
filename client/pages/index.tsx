@@ -7,6 +7,7 @@ import AboutMe from '../components/AboutMe';
 import Email from '../components/Email';
 import ProjectList from '../components/ProjectList';
 import Contact from '../components/Contact';
+import Nav from '../components/Nav';
 
 const Home: NextPage = () => (
 	<Container maxW="container.lg">
@@ -16,6 +17,7 @@ const Home: NextPage = () => (
 				enter: { duration: 1.5 },
 			}}
 		>
+			<Nav />
 			<Header />
 		</Fade>
 		<Fade
