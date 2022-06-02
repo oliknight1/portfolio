@@ -6,6 +6,7 @@ import { GithubIcon, LinkedInIcon } from '../utils/icons';
 import { vertical_line } from '../styles/general';
 import { LinkIcon } from '../types';
 import LinkIconButton from './LinkIconButton';
+import { is_mobile_breakpoint } from '../utils/helpers';
 
 const SocialsList: FC = () => {
 	const icons : LinkIcon[] = [
@@ -23,7 +24,7 @@ const SocialsList: FC = () => {
 		},
 	];
 	return (
-		<Flex pos="fixed" bottom={6} left={20} flexDir="column">
+		<Flex pos="fixed" bottom={6} left={20} flexDir="column" display={is_mobile_breakpoint() ? 'none' : 'inline-block'}>
 			<VStack _after={{ ...vertical_line, marginTop: '15px' }}>
 				{
 					icons.map( ( icon ) => (

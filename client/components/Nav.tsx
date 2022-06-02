@@ -1,5 +1,6 @@
 import { HStack, Button, Box } from '@chakra-ui/react';
 import React, { FC } from 'react';
+import { is_mobile_breakpoint } from '../utils/helpers';
 
 const Nav : FC = () => {
 	const handle_click = ( id : string ) => {
@@ -30,8 +31,23 @@ const Nav : FC = () => {
 	];
 
 	return (
-		<Box pos="fixed" top={0} left={0} right={0} margin="auto" w="85%" zIndex={2} py={5} backdropFilter="blur(20px)">
-			<HStack spacing={10} justify="end" align="center" h="100%">
+		<Box
+			pos="fixed"
+			top={0}
+			left={0}
+			right={0}
+			margin="auto"
+			w={is_mobile_breakpoint() ? '100%' : '85%'}
+			zIndex={2}
+			py={5}
+			backdropFilter="blur(20px)"
+		>
+			<HStack
+				spacing={10}
+				justify={is_mobile_breakpoint() ? 'space-around' : 'end'}
+				align="center"
+				h="100%"
+			>
 				{
 					links.map( ( link ) => (
 						<Button
@@ -40,6 +56,7 @@ const Nav : FC = () => {
 							key={link.id}
 							_hover={{ color: 'brand.red', transform: 'scale(1.1)' }}
 							onClick={() => handle_click( link.href )}
+							fontSize="xl"
 						>
 							{link.name}
 						</Button>

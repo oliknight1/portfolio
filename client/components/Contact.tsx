@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React, { FC } from 'react';
+import { LinkedInIcon } from '../utils/icons';
 
 const Contact : FC = () => (
 	<Center
@@ -24,11 +25,16 @@ const Contact : FC = () => (
 				I'm currently searching for my next step in my career as a software developer,
 				and I'm eager to het working on some great projects!
 				I'm driven, passionate and always looking to learn something new.
-				Send me an email if you're looking for some new energy for your team!
+				Get in touch if you're looking for some new energy for your team!
 			</Text>
-			<Link href="mailto:olidknight@gmail.com">
-				<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<EmailIcon />}>Say hi!</Button>
-			</Link>
+			<Flex>
+				<Link href="mailto:olidknight@gmail.com" mr={8}>
+					<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<EmailIcon />}>Email</Button>
+				</Link>
+				<Link href="https://www.linkedin.com/in/oliver-knight-13804b176/">
+					<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<LinkedInIcon />}>LinkedIn</Button>
+				</Link>
+			</Flex>
 		</Flex>
 	</Center>
 );
