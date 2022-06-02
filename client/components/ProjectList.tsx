@@ -14,7 +14,7 @@ const ProjectList : FC = () => {
 		fetch_data();
 	}, [] );
 	return (
-		<VStack minH="100vh" spacing={28}>
+		<VStack minH="100vh" spacing={[ 12, 28 ]}>
 			{
 				projects.map( ( project, i ) => {
 					const data : ProjectData = project.attributes;

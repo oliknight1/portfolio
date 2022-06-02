@@ -43,7 +43,7 @@ const Project : FC<ProjectProps> = ( {
 	const [ display_overlay, set_display_overaly ] = useState<boolean>( true );
 	return (
 		<Flex
-			flexDir={reverse ? 'row-reverse' : 'row'}
+			flexDir={[ 'column', reverse ? 'row-reverse' : 'row' ]}
 			as={motion.div}
 			initial="hidden"
 			whileInView="visible"
@@ -52,6 +52,7 @@ const Project : FC<ProjectProps> = ( {
 				visible: { opacity: 1 },
 				hidden: { opacity: 0 },
 			}}
+			maxW="100%"
 		>
 			<Box pos="relative">
 				<Tooltip
@@ -70,31 +71,37 @@ const Project : FC<ProjectProps> = ( {
 						isExternal
 						onMouseEnter={() => set_display_overaly( false )}
 						onMouseLeave={() => set_display_overaly( true )}
+						w="100%"
+						mb={[ 6, 0 ]}
+						display="inline-block"
 					>
-						<Box w={image_width} h={image_height} top={0}>
-							<Box w="100%" h="100%" pos="absolute" bg="blackAlpha.300" opacity={display_overlay ? 1 : 0} transition="opacity 0.2s ease-in-out" zIndex={-1} />
+						<Box mb={6} textAlign="left" display={[ 'inline-block', 'none' ]}>
+							<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
+							<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
+						</Box>
+						<Box w={[ '100%', image_width ]} h={[ '100%', image_height ]}>
+							<Box w="100%" h="100%" pos={[ 'relative', 'absolute' ]} bg="blackAlpha.300" opacity={display_overlay ? 1 : 0} transition="opacity 0.2s ease-in-out" zIndex={-1} />
 							<Image src={`http://localhost:1337${image_url}`} height={image_height} width={image_width} style={{ zIndex: -2 }} objectFit="contain" />
 						</Box>
 					</Link>
 				</Tooltip>
 			</Box>
 			<Flex flexDir="column">
-				<Box mb="20%" textAlign={reverse ? 'left' : 'right'}>
+				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', 'inline-block' ]}>
 					<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 				</Box>
-				<Box bg="brand.red" borderRadius="md" py={8} px={6} w="lg" ml={reverse ? 0 : '-10vw'} mr={reverse ? '-10vw' : 0} color="black" fontWeight="light">
+				<Box bg="brand.red" borderRadius="md" py={[ 4, 8 ]} px={6} w={[ 'sm', 'lg' ]} ml={[ 0, reverse ? 0 : '-10vw' ]} mr={[ 0, reverse ? '-10vw' : 0 ]} color="black" fontWeight="light">
 					<Text fontSize="xl">{description}</Text>
 				</Box>
-
-				<HStack pl={2.5} spacing={4} mt={2} justify={reverse ? 'start' : 'end'}>
+				<HStack pl={2.5} spacing={4} mt={[ 4, 2 ]} justify={[ 'start', reverse ? 'start' : 'end' ]} mb={[ 4, 0 ]}>
 					{
 						technologies.length > 0 ? technologies.map( ( technology : Technology ) => (
-							<DarkText fontSize="sm" key={technology.id}>{technology.attributes.title}</DarkText>
+							<DarkText fontSize={[ 'md', 'sm' ]} key={technology.id}>{technology.attributes.title}</DarkText>
 						) ) : null
 					}
 				</HStack>
-				<HStack justify={reverse ? 'start' : 'end'}>
+				<HStack justify={[ 'start', reverse ? 'start' : 'end' ]}>
 					{
 						github_link
 

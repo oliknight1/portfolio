@@ -38,7 +38,7 @@ const AboutMe : FC = () => {
 		>
 			<Subheading mb={6} fontSize="4rem" fontFamily="heading" fontWeight="normal">About Me</Subheading>
 			<Text as="div" dangerouslySetInnerHTML={{ __html: body }} fontWeight="light" fontSize="xl" />
-			<SimpleGrid columns={[ 2, 3 ]} spacingY={4}>
+			<SimpleGrid columns={[ 2, 3 ]} spacingY={[ 6, 4 ]}>
 				{
 					technologies.map( ( technology ) => (
 						<Flex alignItems="center" key={technology.id}>
