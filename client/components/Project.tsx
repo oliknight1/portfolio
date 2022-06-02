@@ -41,7 +41,7 @@ const Project : FC<ProjectProps> = ( {
 	project_click_link,
 	is_cold_boot,
 } ) => {
-	const [ display_overlay, set_display_overaly ] = useState<boolean>( true );
+	const [ display_overlay, set_display_overaly ] = useState<boolean>( !is_mobile_breakpoint() );
 	const cold_boot_text = 'This project is hosted on a cold start server, please allow time for the server to boot up';
 	return (
 		<Flex
@@ -71,8 +71,8 @@ const Project : FC<ProjectProps> = ( {
 					<Link
 						href={project_click_link}
 						isExternal
-						onMouseEnter={() => set_display_overaly( false )}
-						onMouseLeave={() => set_display_overaly( true )}
+						onMouseEnter={() => ( is_mobile_breakpoint() ? null : set_display_overaly( false ) )}
+						onMouseLeave={() => ( is_mobile_breakpoint() ? null : set_display_overaly( true ) )}
 						w="100%"
 						display="inline-block"
 					>
