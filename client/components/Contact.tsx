@@ -19,9 +19,9 @@ const Contact : FC = () => (
 		}}
 		id="contact"
 	>
-		<Flex flexDir="column">
-			<Heading fontWeight="normal" mb={6} fontSize="4rem">Get in touch!</Heading>
-			<Text w="2xl" fontSize="xl" fontWeight="light" mb={12}>
+		<Flex flexDir="column" maxW="100%">
+			<Heading fontWeight="normal" mb={6} fontSize="6xl"> Get in touch!</Heading>
+			<Text w="2xl" maxW="100%" fontSize="xl" fontWeight="light" mb={12}>
 				I'm currently searching for my next step in my career as a software developer,
 				and I'm eager to het working on some great projects!
 				I'm driven, passionate and always looking to learn something new.

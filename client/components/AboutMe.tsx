@@ -25,7 +25,7 @@ const AboutMe : FC = () => {
 	return (
 		<Flex
 			as={motion.div}
-			h="100vh"
+			minH="100vh"
 			justifyContent="center"
 			flexDir="column"
 			initial="hidden"
@@ -35,6 +35,7 @@ const AboutMe : FC = () => {
 				visible: { opacity: 1, type: 'spring' },
 				hidden: { opacity: 0 },
 			}}
+			mb={[ 20, 0 ]}
 		>
 			<Subheading mb={6} fontSize="4rem" fontFamily="heading" fontWeight="normal">About Me</Subheading>
 			<Text as="div" dangerouslySetInnerHTML={{ __html: body }} fontWeight="light" fontSize="xl" />
