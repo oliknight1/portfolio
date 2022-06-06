@@ -10,7 +10,7 @@ import Contact from '../components/Contact';
 import Nav from '../components/Nav';
 
 const Home: NextPage = () => (
-	<Container maxW="container.lg">
+	<Container maxW={[ 'container.sm', null, null, 'container.lg' ]}>
 		<Fade
 			in
 			transition={{

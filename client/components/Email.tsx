@@ -14,7 +14,7 @@ const Email : FC = () => {
 
 	};
 	return (
-		<Box pos="fixed" transform="rotate(90deg)" bottom="250px" right={-15} w="fit-content" display={is_mobile_breakpoint() ? 'none' : 'inline-block'}>
+		<Box pos="fixed" transform="rotate(90deg)" bottom="250px" right={[ null, null, '-12%', 0 ]} w="fit-content" display={is_mobile_breakpoint() ? 'none' : 'inline-block'}>
 			<Link
 				href="mailto:olidknight@gmail.com"
 				_hover={{ textDecoration: 'none', color: 'brand.red' }}

@@ -24,7 +24,7 @@ const SocialsList: FC = () => {
 		},
 	];
 	return (
-		<Flex pos="fixed" bottom={6} left={20} flexDir="column" display={is_mobile_breakpoint() ? 'none' : 'inline-block'}>
+		<Flex pos="fixed" bottom={6} left={[ null, null, '2%', '5%' ]} flexDir="column" display={is_mobile_breakpoint() ? 'none' : 'inline-block'}>
 			<VStack _after={{ ...vertical_line, marginTop: '15px' }}>
 				{
 					icons.map( ( icon ) => (

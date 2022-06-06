@@ -1,4 +1,6 @@
-import { HStack, Button, Box } from '@chakra-ui/react';
+import {
+	HStack, Button, Box,
+} from '@chakra-ui/react';
 import React, { FC } from 'react';
 import { is_mobile_breakpoint } from '../utils/helpers';
 
