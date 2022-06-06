@@ -39,16 +39,17 @@ const Nav : FC = () => {
 			left={0}
 			right={0}
 			margin="auto"
-			w={is_mobile_breakpoint() ? '100%' : '85%'}
+			w={[ '100%', null, null, '80%' ]}
 			zIndex={2}
 			py={5}
 			backdropFilter="blur(20px)"
 		>
 			<HStack
 				spacing={10}
-				justify={is_mobile_breakpoint() ? 'space-around' : 'end'}
+				justify={[ 'space-around', null, 'end' ]}
 				align="center"
 				h="100%"
+				pr={[ null, null, 10, 0 ]}
 			>
 				{
 					links.map( ( link ) => (
