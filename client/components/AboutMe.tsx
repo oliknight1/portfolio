@@ -1,21 +1,20 @@
 import {
 	Flex, SimpleGrid, Text,
 } from '@chakra-ui/react';
-import axios from 'axios';
 import React, { FC, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Technology } from '../types';
 import Subheading from './Subheading';
 import DarkText from './DarkText';
+import { APIController } from '../controllers/APIController';
 
 const AboutMe : FC = () => {
 	const [ body, set_body ] = useState<string>( '' );
 	const [ technologies, set_technologies ] = useState<Technology[]>( [] );
 	useEffect( () => {
 		const get_data = async () => {
-			const request = await axios.get( 'http://localhost:1337/api/about-me?populate=*' );
-			const { attributes } = await request.data.data;
+			const attributes = await APIController.get_about_text();
 			set_technologies( attributes.technologies.data );
 			set_body( attributes.body );
 		};

@@ -1,6 +1,6 @@
 import { VStack } from '@chakra-ui/react';
-import axios from 'axios';
 import React, { FC, useEffect, useState } from 'react';
+import { APIController } from '../controllers/APIController';
 import { ProjectData, ProjectRequest } from '../types';
 import Project from './Project';
 
@@ -8,8 +8,8 @@ const ProjectList : FC = () => {
 	const [ projects, set_projects ] = useState<ProjectRequest[]>( [] );
 	useEffect( () => {
 		const fetch_data = async () => {
-			const request = await axios.get( 'http://localhost:1337/api/projects?populate=*' );
-			set_projects( request.data.data );
+			const data = await APIController.get_projects();
+			set_projects( data );
 		};
 		fetch_data();
 	}, [] );
