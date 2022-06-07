@@ -43,9 +43,10 @@ const Project : FC<ProjectProps> = ( {
 } ) => {
 	const [ display_overlay, set_display_overaly ] = useState<boolean>( !is_mobile_breakpoint() );
 	const cold_boot_text = 'This project is hosted on a cold start server, please allow time for the server to boot up';
+	const is_mobile : boolean = is_mobile_breakpoint();
 	return (
 		<Flex
-			flexDir={[ 'column', reverse ? 'row-reverse' : 'row' ]}
+			flexDir={[ 'column', null, null, reverse ? 'row-reverse' : 'row' ]}
 			as={motion.div}
 			initial="hidden"
 			whileInView="visible"
@@ -71,42 +72,42 @@ const Project : FC<ProjectProps> = ( {
 					<Link
 						href={project_click_link}
 						isExternal
-						onMouseEnter={() => ( is_mobile_breakpoint() ? null : set_display_overaly( false ) )}
-						onMouseLeave={() => ( is_mobile_breakpoint() ? null : set_display_overaly( true ) )}
+						onMouseEnter={() => ( is_mobile ? null : set_display_overaly( false ) )}
+						onMouseLeave={() => ( is_mobile ? null : set_display_overaly( true ) )}
 						w="100%"
 						display="inline-block"
 					>
-						<Box mb={6} textAlign="left" display={[ 'inline-block', 'none' ]}>
+						<Box mb={6} textAlign="left" display={[ 'inline-block', null, null, 'none' ]}>
 							<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
 							<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 						</Box>
-						<Box w={[ '100%', image_width ]} h={[ '100%', image_height ]}>
-							<Box w="100%" h="100%" pos={[ 'relative', 'absolute' ]} bg="blackAlpha.300" opacity={display_overlay ? 1 : 0} transition="opacity 0.2s ease-in-out" zIndex={-1} />
+						<Box w={[ '100%', null, null, image_width ]} h={[ '100%', null, null, image_height ]}>
+							<Box w="100%" h="100%" pos={[ 'relative', null, null, 'absolute' ]} bg="blackAlpha.300" opacity={display_overlay ? 1 : 0} transition="opacity 0.2s ease-in-out" zIndex={-1} />
 							<Image src={`http://localhost:1337${image_url}`} height={image_height} width={image_width} style={{ zIndex: -2 }} objectFit="contain" />
 						</Box>
 					</Link>
 				</Tooltip>
 			</Box>
 			<Flex flexDir="column">
-				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', 'inline-block' ]}>
+				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', null, null, 'inline-block' ]}>
 					<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 				</Box>
 				<Box
 					bg="brand.red"
 					borderRadius="md"
-					py={[ 4, 8 ]}
+					py={[ 4, null, null, 8 ]}
 					px={6}
-					w={[ 'sm', 'lg' ]}
-					ml={[ 0, reverse ? 0 : '-10vw' ]}
-					mr={[ 0, reverse ? '-10vw' : 0 ]}
-					mb={[ 6, 0 ]}
+					w={[ '100%', null, null, 'lg' ]}
+					ml={[ 0, null, null, reverse ? 0 : '-10vw' ]}
+					mr={[ 0, null, null, reverse ? '-10vw' : 0 ]}
+					mb={[ 6, null, null, 0 ]}
 					color="black"
 					fontWeight="light"
 				>
-					<Text fontSize={[ 'lg', 'xl' ]}>{description}</Text>
+					<Text fontSize={[ 'lg', null, null, 'xl' ]}>{description}</Text>
 				</Box>
-				<HStack pl={2.5} spacing={4} mt={2} justify={[ 'start', reverse ? 'start' : 'end' ]} mb={[ 4, 0 ]} order={[ -1, 0 ]}>
+				<HStack pl={2.5} spacing={4} mt={2} justify={[ 'start', null, null, reverse ? 'start' : 'end' ]} mb={[ 4, null, null, 0 ]} order={[ -1, null, null, 0 ]}>
 					{
 						technologies.length > 0 ? technologies.map( ( technology : Technology ) => (
 							<DarkText fontSize={[ 'md', 'sm' ]} key={technology.id}>{technology.attributes.title}</DarkText>
@@ -126,7 +127,7 @@ const Project : FC<ProjectProps> = ( {
 					}
 				</HStack>
 				{
-					( is_mobile_breakpoint() && is_cold_boot )
+					( is_mobile && is_cold_boot )
 					&& 						(
 						<>
 							<Divider mt={6} mb={4} />
