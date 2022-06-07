@@ -1,12 +1,11 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
-	Box, Center, Divider, Flex, Heading, HStack, IconButton, Link, Text, Tooltip,
+	Box, Divider, Flex, Heading, HStack, Link, Text, Tooltip, useBreakpoint,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { FC, useState } from 'react';
 import { Technology } from '../types';
-import { is_mobile_breakpoint } from '../utils/helpers';
 import { GithubIcon } from '../utils/icons';
 import DarkText from './DarkText';
 import LinkIconButton from './LinkIconButton';
@@ -41,9 +40,11 @@ const Project : FC<ProjectProps> = ( {
 	project_click_link,
 	is_cold_boot,
 } ) => {
-	const [ display_overlay, set_display_overaly ] = useState<boolean>( !is_mobile_breakpoint() );
+	const current_breakpoint = useBreakpoint();
+	const is_handheld_device : boolean = [ 'base', 'sm', 'md' ].includes( current_breakpoint as string );
+	const [ display_overlay, set_display_overaly ] = useState<boolean>( !is_handheld_device );
 	const cold_boot_text = 'This project is hosted on a cold start server, please allow time for the server to boot up';
-	const is_mobile : boolean = is_mobile_breakpoint();
+	// return [ 'base', 'sm' ].includes( current_breakpoint as string );
 	return (
 		<Flex
 			flexDir={[ 'column', null, null, reverse ? 'row-reverse' : 'row' ]}
@@ -72,8 +73,8 @@ const Project : FC<ProjectProps> = ( {
 					<Link
 						href={project_click_link}
 						isExternal
-						onMouseEnter={() => ( is_mobile ? null : set_display_overaly( false ) )}
-						onMouseLeave={() => ( is_mobile ? null : set_display_overaly( true ) )}
+						onMouseEnter={() => ( is_handheld_device ? null : set_display_overaly( false ) )}
+						onMouseLeave={() => ( is_handheld_device ? null : set_display_overaly( true ) )}
 						w="100%"
 						display="inline-block"
 					>
@@ -127,7 +128,7 @@ const Project : FC<ProjectProps> = ( {
 					}
 				</HStack>
 				{
-					( is_mobile && is_cold_boot )
+					( is_handheld_device && is_cold_boot )
 					&& 						(
 						<>
 							<Divider mt={6} mb={4} />

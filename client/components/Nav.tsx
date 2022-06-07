@@ -2,7 +2,6 @@ import {
 	HStack, Button, Box,
 } from '@chakra-ui/react';
 import React, { FC } from 'react';
-import { is_mobile_breakpoint } from '../utils/helpers';
 
 const Nav : FC = () => {
 	const handle_click = ( id : string ) => {
