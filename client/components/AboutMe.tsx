@@ -10,13 +10,11 @@ import DarkText from './DarkText';
 import { APIController } from '../controllers/APIController';
 
 const AboutMe : FC = () => {
-	const [ body, set_body ] = useState<string>( '' );
 	const [ technologies, set_technologies ] = useState<Technology[]>( [] );
 	useEffect( () => {
 		const get_data = async () => {
-			const attributes = await APIController.get_about_text();
-			set_technologies( attributes.technologies.data );
-			set_body( attributes.body );
+			const data = await APIController.get_technologies();
+			set_technologies( data as Technology[] );
 		};
 		get_data();
 	}, [] );
@@ -37,13 +35,33 @@ const AboutMe : FC = () => {
 			mb={[ 20, 0 ]}
 		>
 			<Subheading mb={6} fontSize="4rem" fontFamily="heading" fontWeight="normal">About Me</Subheading>
-			<Text as="div" dangerouslySetInnerHTML={{ __html: body }} fontWeight="light" fontSize="xl" />
+			<Text fontWeight="light" fontSize="xl" mb={12}>
+				Hey, my name is Oli Knight and I love creating interactive, data-driven projects
+				that can be used by a wide range of people. My passion for development started at
+				college where I created my first basic site using HTML and CSS and
+				I have been hooked ever since!
+
+				<br />
+				<br />
+
+				I have recently finished my Computing for Web and Mobile degree at the
+				University of Brighton where I learnt a variety of development and soft skills.
+				I also have professional experience due to completing an industrial placement.
+
+				<br />
+				<br />
+
+				I am passionate about picking up new skills and
+				I am always looking to pick up new technologies.
+				These are the currently technologies I am comfortable with:
+
+			</Text>
 			<SimpleGrid columns={[ 2, 3 ]} spacingY={[ 6, 4 ]}>
 				{
 					technologies.map( ( technology ) => (
 						<Flex alignItems="center" key={technology.id}>
 							<ChevronRightIcon color="brand.red" w={4} h={4} mr={3} />
-							<DarkText>{technology.attributes.title}</DarkText>
+							<DarkText>{technology.name}</DarkText>
 						</Flex>
 					) )
 				}

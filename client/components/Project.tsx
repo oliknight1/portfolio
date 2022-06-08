@@ -1,10 +1,12 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
-	Box, Divider, Flex, Heading, HStack, Link, Text, Tooltip, useBreakpoint,
+	Box, Divider, Flex, Heading, HStack, Link, Text, Tooltip, useBreakpoint, Image,
 } from '@chakra-ui/react';
+import { getDocs, collection } from 'firebase/firestore';
+import { getDownloadURL, ref } from 'firebase/storage';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { db, storage } from '../config/firebase';
 import { Technology } from '../types';
 import { GithubIcon } from '../utils/icons';
 import DarkText from './DarkText';
@@ -12,13 +14,11 @@ import LinkIconButton from './LinkIconButton';
 import Subheading from './Subheading';
 
 interface ProjectProps {
+	id: string
 	title: string,
 	subheading: string,
 	description: string,
-	image_url: string,
-	image_height: number,
-	image_width: number,
-	technologies: Technology[],
+	image_ref: string,
 	reverse: boolean,
 	github_link: string,
 	live_link: string,
@@ -27,13 +27,11 @@ interface ProjectProps {
 }
 
 const Project : FC<ProjectProps> = ( {
+	id,
 	title,
 	subheading,
 	description,
-	image_url,
-	image_height,
-	image_width,
-	technologies,
+	image_ref,
 	reverse,
 	github_link,
 	live_link,
@@ -42,9 +40,26 @@ const Project : FC<ProjectProps> = ( {
 } ) => {
 	const current_breakpoint = useBreakpoint();
 	const is_handheld_device : boolean = [ 'base', 'sm', 'md' ].includes( current_breakpoint as string );
+
 	const [ display_overlay, set_display_overaly ] = useState<boolean>( !is_handheld_device );
+	const [ image_url, set_image_url ] = useState<string>( '' );
+	const [ technologies, set_technologies ] = useState<any>();
+
 	const cold_boot_text = 'This project is hosted on a cold start server, please allow time for the server to boot up';
-	// return [ 'base', 'sm' ].includes( current_breakpoint as string );
+
+	useEffect( () => {
+		const path_reference = ref( storage, image_ref );
+		getDownloadURL( path_reference )
+			.then( ( url ) => {
+				set_image_url( url );
+			} );
+		const get_technologies = async () => {
+			const query_snapshot = await getDocs( collection( db, `projects/${id}/technologies` ) );
+			const fetched_technologies = query_snapshot.docs.map( ( doc ) => doc.data() );
+			set_technologies( fetched_technologies );
+		};
+		get_technologies();
+	}, [] );
 	return (
 		<Flex
 			flexDir={[ 'column', null, null, reverse ? 'row-reverse' : 'row' ]}
@@ -56,7 +71,7 @@ const Project : FC<ProjectProps> = ( {
 				visible: { opacity: 1 },
 				hidden: { opacity: 0 },
 			}}
-			maxW="100%"
+			w="100%"
 		>
 			<Box pos="relative">
 				<Tooltip
@@ -75,21 +90,32 @@ const Project : FC<ProjectProps> = ( {
 						isExternal
 						onMouseEnter={() => ( is_handheld_device ? null : set_display_overaly( false ) )}
 						onMouseLeave={() => ( is_handheld_device ? null : set_display_overaly( true ) )}
+						minW="xl"
 						w="100%"
-						display="inline-block"
 					>
 						<Box mb={6} textAlign="left" display={[ 'inline-block', null, null, 'none' ]}>
 							<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
 							<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 						</Box>
-						<Box w={[ '100%', null, null, image_width ]} h={[ '100%', null, null, image_height ]}>
-							<Box w="100%" h="100%" pos={[ 'relative', null, null, 'absolute' ]} bg="blackAlpha.300" opacity={display_overlay ? 1 : 0} transition="opacity 0.2s ease-in-out" zIndex={-1} />
-							<Image src={`http://localhost:1337${image_url}`} height={image_height} width={image_width} style={{ zIndex: -2 }} objectFit="contain" />
+						<Box w="100%" h="100%">
+							<Box w="100%" h="100%" pos={[ 'relative', null, null, 'absolute' ]} top={0} bg="blackAlpha.300" opacity={display_overlay ? 1 : 0} transition="opacity 0.2s ease-in-out" zIndex={0} />
+							{
+								image_url
+									&& (
+										<Image
+											src={image_url}
+											zIndex={-2}
+											w="100%"
+											h="auto"
+
+										/>
+									)
+							}
 						</Box>
 					</Link>
 				</Tooltip>
 			</Box>
-			<Flex flexDir="column">
+			<Flex flexDir="column" zIndex={1}>
 				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', null, null, 'inline-block' ]}>
 					<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
@@ -110,8 +136,8 @@ const Project : FC<ProjectProps> = ( {
 				</Box>
 				<HStack pl={2.5} spacing={4} mt={2} justify={[ 'start', null, null, reverse ? 'start' : 'end' ]} mb={[ 4, null, null, 0 ]} order={[ -1, null, null, 0 ]}>
 					{
-						technologies.length > 0 ? technologies.map( ( technology : Technology ) => (
-							<DarkText fontSize={[ 'md', 'sm' ]} key={technology.id}>{technology.attributes.title}</DarkText>
+						technologies?.length > 0 ? technologies.map( ( technology : Technology ) => (
+							<DarkText fontSize={[ 'md', 'sm' ]} key={technology.id}>{technology.name}</DarkText>
 						) ) : null
 					}
 				</HStack>

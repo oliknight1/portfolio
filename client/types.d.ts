@@ -1,10 +1,8 @@
 import React from 'react';
 
 export interface Technology {
-	id: number,
-	attributes: {
-		title: string
-	}
+	id: string,
+	name: string
 }
 
 export interface Format {
