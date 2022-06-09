@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React, { FC } from 'react';
-import { LinkedInIcon } from '../utils/icons';
+import { GithubIcon, LinkedInIcon } from '../utils/icons';
 
 const Contact : FC = () => (
 	<Center
@@ -27,12 +27,15 @@ const Contact : FC = () => (
 				I'm driven, passionate and always looking to learn something new.
 				Get in touch if you're looking for some new energy for your team!
 			</Text>
-			<Flex>
-				<Link href="mailto:olidknight@gmail.com" mr={8}>
+			<Flex w={[ '100%', 0, '60%' ]} justify="space-between">
+				<Link href="mailto:olidknight@gmail.com" isExternal>
 					<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<EmailIcon />}>Email</Button>
 				</Link>
-				<Link href="https://www.linkedin.com/in/oliver-knight-13804b176/">
+				<Link href="https://www.linkedin.com/in/oliver-knight-13804b176/" isExternal>
 					<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<LinkedInIcon />}>LinkedIn</Button>
+				</Link>
+				<Link href="https://github.com/oliknight1" isExternal>
+					<Button w="fit-content" colorScheme="red" variant="outline" leftIcon={<GithubIcon />}>GitHub</Button>
 				</Link>
 			</Flex>
 		</Flex>
