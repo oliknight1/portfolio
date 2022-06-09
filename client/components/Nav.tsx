@@ -1,5 +1,5 @@
 import {
-	HStack, Button, Box,
+	HStack, Button, Flex, Image,
 } from '@chakra-ui/react';
 import React, { FC } from 'react';
 
@@ -32,23 +32,27 @@ const Nav : FC = () => {
 	];
 
 	return (
-		<Box
+		<Flex
 			pos="fixed"
 			top={0}
 			left={0}
 			right={0}
-			margin="auto"
 			w={[ '100%', null, null, '80%' ]}
+			margin="auto"
 			zIndex={2}
 			py={5}
 			backdropFilter="blur(20px)"
+			alignItems="center"
+			justify={[ 'center', 'space-between' ]}
 		>
+			<Image src="/logo.svg" h={9} display={[ 'none', 'inline-block' ]} />
 			<HStack
 				spacing={10}
 				justify={[ 'space-around', null, 'end' ]}
 				align="center"
 				h="100%"
 				pr={[ null, null, 10, 0 ]}
+				ml={[ 5, 0 ]}
 			>
 				{
 					links.map( ( link ) => (
@@ -66,7 +70,7 @@ const Nav : FC = () => {
 				}
 			</HStack>
 
-		</Box>
+		</Flex>
 	);
 };
 export default Nav;
