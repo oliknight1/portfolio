@@ -22,10 +22,10 @@ const Contact : FC = () => (
 		<Flex flexDir="column" maxW="100%">
 			<Heading fontWeight="normal" mb={6} fontSize={[ '5xl', null, null, '6xl' ]}> Get in touch!</Heading>
 			<Text w="2xl" maxW="100%" fontSize={[ 'lg', null, null, 'xl' ]} fontWeight="light" mb={12}>
-				I'm currently searching for my next step in my career as a software developer,
-				and I'm eager to het working on some great projects!
-				I'm driven, passionate and always looking to learn something new.
-				Get in touch if you're looking for some new energy for your team!
+				I&#39;m currently searching for my next step in my career as a software developer,
+				and I&#39;m eager to het working on some great projects!
+				I&#39;m driven, passionate and always looking to learn something new.
+				Get in touch if you&#39;re looking for some new energy for your team!
 			</Text>
 			<Flex w={[ '100%', 0, '60%' ]} justify="space-between">
 				<Link href="mailto:olidknight@gmail.com" isExternal>
