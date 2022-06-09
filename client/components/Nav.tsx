@@ -43,17 +43,18 @@ const Nav : FC = () => {
 			py={5}
 			backdropFilter="blur(20px)"
 			alignItems="center"
-			justify={[ 'center', 'space-between' ]}
+			justify={[ 'start', 'space-between' ]}
 		>
 			<Image src="/logo.svg" h={9} display={[ 'none', 'inline-block' ]} pl={[ null, null, 10, 0 ]} />
 
 			<HStack
-				spacing={10}
-				justify={[ 'space-around', null, 'end' ]}
+				spacing={[ 0, null, 10 ]}
+				justify={[ 'space-between', null, 'end' ]}
 				align="center"
+				w="100%"
 				h="100%"
 				pr={[ null, null, 10, 0 ]}
-				ml={[ 5, 0 ]}
+				mx={[ 5, 0 ]}
 			>
 				{
 					links.map( ( link ) => (
