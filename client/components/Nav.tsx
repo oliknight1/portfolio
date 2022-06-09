@@ -45,7 +45,8 @@ const Nav : FC = () => {
 			alignItems="center"
 			justify={[ 'center', 'space-between' ]}
 		>
-			<Image src="/logo.svg" h={9} display={[ 'none', 'inline-block' ]} />
+			<Image src="/logo.svg" h={9} display={[ 'none', 'inline-block' ]} pl={[ null, null, 10, 0 ]} />
+
 			<HStack
 				spacing={10}
 				justify={[ 'space-around', null, 'end' ]}
