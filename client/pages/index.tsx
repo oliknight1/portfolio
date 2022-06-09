@@ -8,6 +8,7 @@ import Email from '../components/Email';
 import ProjectList from '../components/ProjectList';
 import Contact from '../components/Contact';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 const Home: NextPage = () => (
 	<Container maxW={[ 'container.sm', null, null, 'container.lg' ]}>
@@ -32,6 +33,7 @@ const Home: NextPage = () => (
 		<AboutMe />
 		<ProjectList />
 		<Contact />
+		<Footer />
 
 	</Container>
 );
