@@ -55,7 +55,10 @@ const Project : FC<ProjectProps> = ( {
 			} );
 		const get_technologies = async () => {
 			const query_snapshot = await getDocs( collection( db, `projects/${id}/technologies` ) );
-			const fetched_technologies = query_snapshot.docs.map( ( doc ) => doc.data() );
+			const fetched_technologies = query_snapshot.docs.map( ( doc ) => ( {
+				id: doc.id,
+				...doc.data(),
+			} ) );
 			set_technologies( fetched_technologies );
 		};
 		get_technologies();
