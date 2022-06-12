@@ -41,7 +41,6 @@ const Project : FC<ProjectProps> = ( {
 	const current_breakpoint = useBreakpoint();
 	const is_handheld_device : boolean = [ 'base', 'sm', 'md' ].includes( current_breakpoint as string );
 
-	const [ display_overlay, set_display_overaly ] = useState<boolean>( !is_handheld_device );
 	const [ image_url, set_image_url ] = useState<string>( '' );
 	const [ technologies, set_technologies ] = useState<any>();
 
@@ -91,8 +90,6 @@ const Project : FC<ProjectProps> = ( {
 					<Link
 						href={project_click_link}
 						isExternal
-						onMouseEnter={() => ( is_handheld_device ? null : set_display_overaly( false ) )}
-						onMouseLeave={() => ( is_handheld_device ? null : set_display_overaly( true ) )}
 						minW="xl"
 						w="100%"
 					>
@@ -101,14 +98,14 @@ const Project : FC<ProjectProps> = ( {
 							<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 						</Box>
 						<Box w="100%" h="100%">
-							<Box w="100%" h="100%" pos={[ 'relative', null, null, 'absolute' ]} top={0} bg="blackAlpha.300" opacity={display_overlay ? 1 : 0} transition="opacity 0.2s ease-in-out" zIndex={0} />
 							{
 								image_url
 									&& (
 										<Image
 											src={image_url}
 											zIndex={-2}
-											w="100%"
+											w="fit-content"
+											maxH="60%"
 											h="auto"
 
 										/>

@@ -27,7 +27,7 @@ const ProjectList : FC = () => {
 						reverse={i % 2 !== 0}
 						github_link={project.github_link}
 						live_link={project.live_link}
-						project_click_link={project.project_click_link}
+						project_click_link={project.click_link}
 						is_cold_boot={project.is_cold_boot}
 					/>
 				) )
