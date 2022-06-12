@@ -32,11 +32,7 @@ export interface ProjectData {
 	live_link: string,
 	project_click_link: string,
 	is_cold_boot: boolean
-	image: {
-		data : [{
-			attributes: Image
-		}]
-	},
+	image: string,
 	technologies: {
 		data : Technology[]
 	}

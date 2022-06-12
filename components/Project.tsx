@@ -23,7 +23,7 @@ interface ProjectProps {
 	github_link: string,
 	live_link: string,
 	project_click_link: string,
-	is_cold_boot: boolean
+	is_cold_boot: boolean,
 }
 
 const Project : FC<ProjectProps> = ( {
@@ -64,8 +64,9 @@ const Project : FC<ProjectProps> = ( {
 	}, [] );
 	return (
 		<Flex
-			flexDir={[ 'column', null, null, reverse ? 'row-reverse' : 'row' ]}
 			as={motion.div}
+			flexDir={[ 'column', null, null, reverse ? 'row-reverse' : 'row' ]}
+			justify="center"
 			initial="hidden"
 			whileInView="visible"
 			viewport={{ once: true, amount: 0.6 }}
