@@ -5,9 +5,9 @@ import React, { FC, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Technology } from '../types';
-import Subheading from './Subheading';
 import DarkText from './DarkText';
 import { APIController } from '../controllers/APIController';
+import SubheadingDivider from './SubheadingDivider';
 
 const AboutMe : FC = () => {
 	const [ technologies, set_technologies ] = useState<Technology[]>( [] );
@@ -34,8 +34,8 @@ const AboutMe : FC = () => {
 			}}
 			mb={[ 20, 0 ]}
 		>
-			<Subheading mb={6} fontSize="4rem" fontFamily="heading" fontWeight="normal">About Me</Subheading>
-			<Text fontWeight="light" fontSize="xl" mb={12}>
+			<SubheadingDivider>About Me</SubheadingDivider>
+			<Text fontWeight="light" fontSize="xl" mb={12} mt={6}>
 				Hey, my name is Oli Knight and I love creating interactive, data-driven projects
 				that can be used by a wide range of people. My passion for development started at
 				college where I created my first basic site using HTML and CSS and

@@ -8,7 +8,7 @@ import Subheading from './Subheading';
 const Header : FC = () => (
 	<Flex height="100vh" alignItems="center">
 		<div>
-			<Subheading mb={4}>Hi, my name is</Subheading>
+			<Subheading mb={4} divider={false}>Hi, my name is</Subheading>
 			<Heading as="h1" fontWeight="medium" fontSize={[ '6xl', '8xl' ]}>Oli Knight</Heading>
 			<Heading as="h2" fontWeight="medium" fontSize={[ '2xl', '6xl' ]} mb={6} opacity="0.3">Graduate Software Developer</Heading>
 			<Text maxW="xl" mb={8} fontSize="xl" fontWeight="light">
