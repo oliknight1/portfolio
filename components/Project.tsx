@@ -115,7 +115,7 @@ const Project : FC<ProjectProps> = ( {
 					</Link>
 				</Tooltip>
 			</Box>
-			<Flex flexDir="column" zIndex={1}>
+			<Flex flexDir="column" zIndex={1} w="20%">
 				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', null, null, 'inline-block' ]}>
 					<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
@@ -126,8 +126,8 @@ const Project : FC<ProjectProps> = ( {
 					py={[ 4, null, null, 8 ]}
 					px={6}
 					w={[ '100%', null, null, 'lg' ]}
-					ml={[ 0, null, null, reverse ? 0 : '-6vw' ]}
-					mr={[ 0, null, null, reverse ? '-6vw' : 0 ]}
+					ml={[ 0, null, null, reverse ? 0 : '-10vw' ]}
+					mr={[ 0, null, null, reverse ? '-10vw' : 0 ]}
 					mb={[ 6, null, null, 0 ]}
 					color="black"
 					fontWeight="light"
