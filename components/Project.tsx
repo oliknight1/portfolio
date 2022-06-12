@@ -105,8 +105,8 @@ const Project : FC<ProjectProps> = ( {
 											src={image_url}
 											zIndex={-2}
 											w="fit-content"
-											maxH="60%"
 											h="auto"
+											maxH="90vh"
 
 										/>
 									)
