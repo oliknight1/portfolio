@@ -14,7 +14,7 @@ const ProjectList : FC = () => {
 		fetch_data();
 	}, [] );
 	return (
-		<VStack spacing={[ 12, 28 ]}>
+		<VStack spacing={[ 12, 64 ]}>
 			{
 				projects.map( ( project : any, i ) => (
 					<Project
