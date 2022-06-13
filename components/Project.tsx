@@ -2,11 +2,10 @@ import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
 	Box, Divider, Flex, Heading, HStack, Link, Text, Tooltip, useBreakpoint, Image,
 } from '@chakra-ui/react';
-import { getDocs, collection } from 'firebase/firestore';
 import { getDownloadURL, ref } from 'firebase/storage';
 import { motion } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
-import { db, storage } from '../config/firebase';
+import { storage } from '../config/firebase';
 import { APIController } from '../controllers/APIController';
 import { Technology } from '../types';
 import { GithubIcon } from '../utils/icons';
