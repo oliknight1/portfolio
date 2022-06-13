@@ -1,6 +1,11 @@
-import { VStack } from '@chakra-ui/react';
+import {
+	Heading,
+	Tab, TabList, TabPanel, TabPanels, Tabs, VStack, Text, Box,
+} from '@chakra-ui/react';
 import React, { FC, useEffect, useState } from 'react';
 import { APIController } from '../controllers/APIController';
+import DarkText from './DarkText';
+import MinorProjects from './MinorProjects';
 import Project from './Project';
 import SubheadingDivider from './SubheadingDivider';
 
@@ -36,6 +41,7 @@ const ProjectList : FC = () => {
 					) )
 				}
 			</VStack>
+			<MinorProjects />
 		</>
 	);
 };
