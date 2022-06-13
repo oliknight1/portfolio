@@ -13,8 +13,8 @@ const Header : FC = () => (
 			<Heading as="h2" fontWeight="medium" fontSize={[ '2xl', '6xl' ]} mb={6} opacity="0.3">Graduate Software Developer</Heading>
 			<Text maxW="xl" mb={8} fontSize="xl" fontWeight="light">
 				I am a graduate <Text as="span" color="brand.red">developer </Text>
-				specializing in creating bespoke web experiences.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut mattis lectus.
+				specializing in creating bespoke web experiences. I work on
+				both the front and back end with a variety of languages.
 			</Text>
 			<Button
 				onClick={() => {
