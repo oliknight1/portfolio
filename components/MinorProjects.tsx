@@ -54,9 +54,8 @@ const MinorProjects : FC = () => {
 	return (
 		<Box mt={12}>
 			<SubheadingDivider fontSize="3rem">Other Projects</SubheadingDivider>
-			<Box mt={8}>
+			<Box mt={16}>
 				<Tabs
-					mt={6}
 					variant="line"
 					size="md"
 					orientation="vertical"
