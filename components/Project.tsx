@@ -7,6 +7,7 @@ import { getDownloadURL, ref } from 'firebase/storage';
 import { motion } from 'framer-motion';
 import React, { FC, useEffect, useState } from 'react';
 import { db, storage } from '../config/firebase';
+import { APIController } from '../controllers/APIController';
 import { Technology } from '../types';
 import { GithubIcon } from '../utils/icons';
 import DarkText from './DarkText';
@@ -53,12 +54,8 @@ const Project : FC<ProjectProps> = ( {
 				set_image_url( url );
 			} );
 		const get_technologies = async () => {
-			const query_snapshot = await getDocs( collection( db, `projects/${id}/technologies` ) );
-			const fetched_technologies = query_snapshot.docs.map( ( doc ) => ( {
-				id: doc.id,
-				...doc.data(),
-			} ) );
-			set_technologies( fetched_technologies );
+			const data = await APIController.get_project_technologies( 'projects', id );
+			set_technologies( data );
 		};
 		get_technologies();
 	}, [] );
