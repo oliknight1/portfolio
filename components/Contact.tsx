@@ -13,6 +13,7 @@ const Contact : FC = () => (
 		h="100vh"
 		initial="hidden"
 		whileInView="visible"
+		justify="center"
 		viewport={{ once: true, amount: 0.7 }}
 		variants={{
 			visible: { opacity: 1 },
@@ -20,7 +21,10 @@ const Contact : FC = () => (
 		}}
 		id="contact"
 	>
-		<Flex flexDir="column" maxW="100%">
+		<Flex
+			flexDir="column"
+			maxW="100%"
+		>
 			<SubheadingDivider>Get in touch!</SubheadingDivider>
 			<Text w="2xl" maxW="100%" fontSize={[ 'lg', null, null, 'xl' ]} fontWeight="light" my={12}>
 				I&#39;m currently searching for my next step in my career as a software developer,
