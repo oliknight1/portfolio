@@ -18,7 +18,7 @@ const ProjectList : FC = () => {
 	return (
 		<>
 			<SubheadingDivider>Projects</SubheadingDivider>
-			<VStack spacing={[ 12, 64 ]} mt={12}>
+			<VStack spacing={[ 12, 64 ]} mt={20}>
 				{
 					projects.map( ( project : any, i ) => (
 						<Project

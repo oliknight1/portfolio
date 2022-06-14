@@ -68,7 +68,7 @@ const MinorProjects : FC = () => {
 		get_data();
 	}, [] );
 	return (
-		<Box mt={12}>
+		<Box mt={36}>
 			<SubheadingDivider fontSize="3rem">Other Projects</SubheadingDivider>
 			<Box mt={16}>
 				<Tabs
@@ -90,7 +90,7 @@ const MinorProjects : FC = () => {
 					<TabPanels maxW="60%">
 						{
 							projects.map( ( project : any ) => (
-								<TabPanel>
+								<TabPanel minH="28vh">
 									<MinorProjectItem
 										id={project.id}
 										title={project.title}

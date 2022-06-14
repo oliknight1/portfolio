@@ -35,7 +35,7 @@ const AboutMe : FC = () => {
 			mb={[ 20, 0 ]}
 		>
 			<SubheadingDivider>About Me</SubheadingDivider>
-			<Text fontWeight="light" fontSize="xl" mb={12} mt={6}>
+			<Text fontWeight="light" fontSize="xl" mb={12} mt={8}>
 				Hey, my name is Oli Knight and I love creating interactive, data-driven projects
 				that can be used by a wide range of people. My passion for development started at
 				college where I created my first basic site using HTML and CSS and
