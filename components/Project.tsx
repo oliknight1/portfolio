@@ -104,6 +104,7 @@ const Project : FC<ProjectProps> = ( {
 											w="fit-content"
 											h="auto"
 											maxH="90vh"
+											borderRadius="lg"
 
 										/>
 									)
