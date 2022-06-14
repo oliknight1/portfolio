@@ -1,11 +1,10 @@
 import { EmailIcon } from '@chakra-ui/icons';
 import {
-	Button, Center, Flex, Link, Text,
+	Button, Center, Flex, Link, Text, Heading,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React, { FC } from 'react';
 import { GithubIcon, LinkedInIcon } from '../utils/icons';
-import SubheadingDivider from './SubheadingDivider';
 
 const Contact : FC = () => (
 	<Center
@@ -13,7 +12,6 @@ const Contact : FC = () => (
 		h="100vh"
 		initial="hidden"
 		whileInView="visible"
-		justify="center"
 		viewport={{ once: true, amount: 0.7 }}
 		variants={{
 			visible: { opacity: 1 },
@@ -24,9 +22,10 @@ const Contact : FC = () => (
 		<Flex
 			flexDir="column"
 			maxW="100%"
+			alignItems="center"
 		>
-			<SubheadingDivider>Get in touch!</SubheadingDivider>
-			<Text w="2xl" maxW="100%" fontSize={[ 'lg', null, null, 'xl' ]} fontWeight="light" my={12}>
+			<Heading textAlign="center" fontSize="6xl" fontWeight="normal">Get in touch!</Heading>
+			<Text w="2xl" maxW="100%" fontSize={[ 'lg', null, null, 'xl' ]} fontWeight="light" my={12} textAlign="center">
 				I&#39;m currently searching for my next step in my career as a software developer,
 				and I&#39;m eager to het working on some great projects!
 				I&#39;m driven, passionate and always looking to learn something new.
