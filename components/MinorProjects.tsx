@@ -78,6 +78,7 @@ const MinorProjects : FC = () => {
 					colorScheme="red"
 					w="75%"
 					margin="auto"
+					h="100%"
 				>
 					<TabList w="fit-content">
 						{
@@ -102,14 +103,6 @@ const MinorProjects : FC = () => {
 								</TabPanel>
 							) )
 						}
-						<TabPanel>
-							<Heading fontSize="xl" fontWeight="normal">title</Heading>
-							<p>test</p>
-							<Heading fontSize="lg" fontWeight="light" color="brand.red">subheading</Heading>
-							<DarkText fontSize={[ 'md', 'sm' ]}>TypeScript</DarkText>
-							<Text>description</Text>
-						</TabPanel>
-						<TabPanel />
 					</TabPanels>
 				</Tabs>
 			</Box>
