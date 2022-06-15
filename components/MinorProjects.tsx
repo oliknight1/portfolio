@@ -85,7 +85,7 @@ const MinorProjects : FC = () => {
 					<TabList w={[ '100%', null, 'fit-content' ]} fontFamily="monospace" alignItems="start">
 						{
 							projects.map( ( project : any ) => (
-								<Tab key={project.id} fontSize="xl">{project.title}</Tab>
+								<Tab key={project.id} fontSize={[ 'lg', null, 'xl' ]}>{project.title}</Tab>
 							) )
 						}
 					</TabList>
