@@ -36,7 +36,7 @@ const MinorProjectItem : FC<MinorProjectItemProps> = ( {
 			<HStack mb={2}>
 				{
 					technologies.map( ( tech : any ) => (
-						<DarkText fontSize={[ 'md', 'sm' ]}>{tech.name}</DarkText>
+						<DarkText key={tech.id} fontSize={[ 'md', 'sm' ]}>{tech.name}</DarkText>
 					) )
 				}
 			</HStack>
@@ -92,7 +92,7 @@ const MinorProjects : FC = () => {
 					<TabPanels maxW={[ '100%', null, '60%' ]}>
 						{
 							projects.map( ( project : any ) => (
-								<TabPanel minH="30vh">
+								<TabPanel minH="30vh" key={project.id}>
 									<MinorProjectItem
 										id={project.id}
 										title={project.title}
