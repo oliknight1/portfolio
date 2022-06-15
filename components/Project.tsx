@@ -115,7 +115,7 @@ const Project : FC<ProjectProps> = ( {
 			</Box>
 			<Flex flexDir="column" zIndex={1} w="30%">
 				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', null, null, 'inline-block' ]}>
-					<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
+					<Heading as="h3" fontWeight="light" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 				</Box>
 				<Box
