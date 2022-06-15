@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
-	Box, Tabs, TabList, TabPanels, TabPanel, Heading, Tab, Text, HStack,
+	Box, Tabs, TabList, TabPanels, TabPanel, Heading, Tab, Text, HStack, useBreakpoint,
 } from '@chakra-ui/react';
 import React, { FC, useEffect, useState } from 'react';
 import { APIController } from '../controllers/APIController';
@@ -67,6 +67,8 @@ const MinorProjects : FC = () => {
 		};
 		get_data();
 	}, [] );
+	const current_breakpoint = useBreakpoint();
+	const is_mobile_device : boolean = [ 'base', 'sm' ].includes( current_breakpoint as string );
 	return (
 		<Box mt={[ 24, null, 36 ]}>
 			<SubheadingDivider fontSize="3rem">Other Projects</SubheadingDivider>
@@ -74,20 +76,20 @@ const MinorProjects : FC = () => {
 				<Tabs
 					variant="line"
 					size="md"
-					orientation="vertical"
 					colorScheme="red"
+					orientation={is_mobile_device ? 'horizontal' : 'vertical'}
 					w="100%"
 					margin="auto"
 					h="100%"
 				>
-					<TabList w="fit-content" fontFamily="monospace" alignItems="start">
+					<TabList w={[ '100%', null, 'fit-content' ]} fontFamily="monospace" alignItems="start">
 						{
 							projects.map( ( project : any ) => (
 								<Tab key={project.id} fontSize="xl">{project.title}</Tab>
 							) )
 						}
 					</TabList>
-					<TabPanels maxW="60%">
+					<TabPanels maxW={[ '100%', null, '60%' ]}>
 						{
 							projects.map( ( project : any ) => (
 								<TabPanel minH="30vh">
