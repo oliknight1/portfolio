@@ -31,8 +31,8 @@ const MinorProjectItem : FC<MinorProjectItemProps> = ( {
 	}, [] );
 	return (
 		<>
-			<Heading fontSize="xl" fontWeight="normal" mb={2}>{title}</Heading>
-			<Heading fontSize="lg" fontWeight="light" color="brand.red" mb={1} fontFamily="monospace">{subheading}</Heading>
+			<Heading fontSize="2xl" fontWeight="normal" mb={2}>{title}</Heading>
+			<Heading fontSize="xl" fontWeight="light" color="brand.red" mb={1} fontFamily="monospace">{subheading}</Heading>
 			<HStack mb={2}>
 				{
 					technologies.map( ( tech : any ) => (
@@ -40,7 +40,7 @@ const MinorProjectItem : FC<MinorProjectItemProps> = ( {
 					) )
 				}
 			</HStack>
-			<Text mb={4}>{description}</Text>
+			<Text mb={4} fontSize="xl">{description}</Text>
 			<HStack ml={-3}>
 				{
 					github_link
@@ -76,14 +76,14 @@ const MinorProjects : FC = () => {
 					size="md"
 					orientation="vertical"
 					colorScheme="red"
-					w="75%"
+					w="100%"
 					margin="auto"
 					h="100%"
 				>
 					<TabList w="fit-content" fontFamily="monospace" alignItems="start">
 						{
 							projects.map( ( project : any ) => (
-								<Tab key={project.id}>{project.title}</Tab>
+								<Tab key={project.id} fontSize="xl">{project.title}</Tab>
 							) )
 						}
 					</TabList>
