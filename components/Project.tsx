@@ -24,6 +24,7 @@ interface ProjectProps {
 	live_link: string,
 	project_click_link: string,
 	is_cold_boot: boolean,
+	is_last: boolean,
 }
 
 const Project : FC<ProjectProps> = ( {
@@ -37,6 +38,7 @@ const Project : FC<ProjectProps> = ( {
 	live_link,
 	project_click_link,
 	is_cold_boot,
+	is_last,
 } ) => {
 	const current_breakpoint = useBreakpoint();
 	const is_handheld_device : boolean = [ 'base', 'sm', 'md' ].includes( current_breakpoint as string );
@@ -90,7 +92,7 @@ const Project : FC<ProjectProps> = ( {
 						minW="xl"
 						w="100%"
 					>
-						<Box mb={6} textAlign="left" display={[ 'inline-block', null, null, 'none' ]}>
+						<Box mb={6} textAlign="center" w="100%" display={[ 'inline-block', null, null, 'none' ]}>
 							<Heading as="h3" fontWeight="light" mb={1}>{title}</Heading>
 							<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 						</Box>
@@ -113,7 +115,7 @@ const Project : FC<ProjectProps> = ( {
 					</Link>
 				</Tooltip>
 			</Box>
-			<Flex flexDir="column" zIndex={1} w="30%">
+			<Flex flexDir="column" zIndex={1} w={[ '100%', null, '30%' ]}>
 				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', null, null, 'inline-block' ]}>
 					<Heading as="h3" fontWeight="light" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
@@ -126,13 +128,19 @@ const Project : FC<ProjectProps> = ( {
 					w={[ '100%', null, null, 'lg' ]}
 					ml={[ 0, null, null, reverse ? 0 : '-10vw' ]}
 					mr={[ 0, null, null, reverse ? '-10vw' : 0 ]}
-					mb={[ 6, null, null, 0 ]}
+					my={[ 6, null, null, 0 ]}
 					color="black"
 					fontWeight="light"
 				>
 					<Text fontSize={[ 'lg', null, null, 'xl' ]}>{description}</Text>
 				</Box>
-				<HStack pl={2.5} spacing={4} mt={2} justify={[ 'start', null, null, reverse ? 'start' : 'end' ]} mb={[ 4, null, null, 0 ]} order={[ -1, null, null, 0 ]}>
+				<HStack
+					pl={[ 1, null, 2.5 ]}
+					spacing={4}
+					mt={[ 0, null, 2 ]}
+					justify={[ 'start', null, null, reverse ? 'start' : 'end' ]}
+					mb={[ 2, null, 0 ]}
+				>
 					{
 						technologies?.length > 0 ? technologies.map( ( technology : Technology ) => (
 							<DarkText fontSize={[ 'md', 'sm' ]} key={technology.id}>{technology.name}</DarkText>
@@ -162,6 +170,10 @@ const Project : FC<ProjectProps> = ( {
 
 				}
 			</Flex>
+			{
+				!is_last
+					&& <Divider borderColor="brand.red" w="80%" margin="auto" opacity={0.4} my={8} display={[ 'initial', null, 'none' ]} />
+			}
 		</Flex>
 
 	);

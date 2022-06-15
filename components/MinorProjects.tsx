@@ -68,7 +68,7 @@ const MinorProjects : FC = () => {
 		get_data();
 	}, [] );
 	return (
-		<Box mt={36}>
+		<Box mt={[ 24, null, 36 ]}>
 			<SubheadingDivider fontSize="3rem">Other Projects</SubheadingDivider>
 			<Box mt={16}>
 				<Tabs

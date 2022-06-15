@@ -18,7 +18,7 @@ const ProjectList : FC = () => {
 	return (
 		<>
 			<SubheadingDivider>Projects</SubheadingDivider>
-			<VStack spacing={[ 12, 64 ]} mt={20}>
+			<VStack spacing={[ 12, 64 ]} mt={[ 12, null, 20 ]}>
 				{
 					projects.map( ( project : any, i ) => (
 						<Project
@@ -33,6 +33,7 @@ const ProjectList : FC = () => {
 							live_link={project.live_link}
 							project_click_link={project.click_link}
 							is_cold_boot={project.is_cold_boot}
+							is_last={i === projects.length - 1}
 						/>
 					) )
 				}
