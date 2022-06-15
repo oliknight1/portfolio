@@ -90,7 +90,7 @@ const MinorProjects : FC = () => {
 					<TabPanels maxW="60%">
 						{
 							projects.map( ( project : any ) => (
-								<TabPanel minH="28vh">
+								<TabPanel minH="30vh">
 									<MinorProjectItem
 										id={project.id}
 										title={project.title}

@@ -91,7 +91,7 @@ const Project : FC<ProjectProps> = ( {
 						w="100%"
 					>
 						<Box mb={6} textAlign="left" display={[ 'inline-block', null, null, 'none' ]}>
-							<Heading as="h3" fontWeight="normal" mb={1}>{title}</Heading>
+							<Heading as="h3" fontWeight="light" mb={1}>{title}</Heading>
 							<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 						</Box>
 						<Box w="100%" h="100%">
