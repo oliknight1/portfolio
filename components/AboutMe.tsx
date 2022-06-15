@@ -33,6 +33,7 @@ const AboutMe : FC = () => {
 				hidden: { opacity: 0 },
 			}}
 			mb={[ 20, 0 ]}
+			id="about"
 		>
 			<SubheadingDivider>About Me</SubheadingDivider>
 			<Text fontWeight="light" fontSize="xl" mb={12} mt={8}>

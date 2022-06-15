@@ -1,4 +1,4 @@
-import { VStack } from '@chakra-ui/react';
+import { Box, VStack } from '@chakra-ui/react';
 import React, { FC, useEffect, useState } from 'react';
 import { APIController } from '../controllers/APIController';
 import MinorProjects from './MinorProjects';
@@ -16,7 +16,7 @@ const ProjectList : FC = () => {
 		fetch_data();
 	}, [] );
 	return (
-		<>
+		<Box id="projects" py={20}>
 			<SubheadingDivider>Projects</SubheadingDivider>
 			<VStack spacing={[ 12, 64 ]} mt={[ 12, null, 20 ]}>
 				{
@@ -39,7 +39,7 @@ const ProjectList : FC = () => {
 				}
 			</VStack>
 			<MinorProjects />
-		</>
+		</Box>
 	);
 };
 export default ProjectList;
