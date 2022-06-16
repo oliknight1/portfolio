@@ -3,6 +3,7 @@ import {
 } from '@chakra-ui/react';
 import React, { FC, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
+import AnimatedTitle from './AnimatedTitle';
 
 interface LoaderProps {
 	set_loading: React.Dispatch<React.SetStateAction<boolean>>
@@ -52,15 +53,15 @@ const TextAnimation: FC = () => {
 				exit="hidden"
 				fontSize="6xl"
 			>
-				<motion.span variants={child}>
+				<motion.p variants={child}>
 					O
-				</motion.span>
-				<motion.span variants={child}>
+				</motion.p>
+				<motion.p variants={child}>
 					K
-				</motion.span>
-				<motion.span variants={child}>
+				</motion.p>
+				<motion.p variants={child}>
 					.
-				</motion.span>
+				</motion.p>
 			</Heading>
 		</VStack>
 	);
