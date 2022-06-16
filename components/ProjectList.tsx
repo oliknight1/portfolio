@@ -16,7 +16,7 @@ const ProjectList : FC = () => {
 		fetch_data();
 	}, [] );
 	return (
-		<Box id="projects" py={20}>
+		<Box id="projects" pt={20}>
 			<SubheadingDivider>Projects</SubheadingDivider>
 			<VStack spacing={[ 12, 64 ]} mt={[ 12, null, 20 ]}>
 				{
