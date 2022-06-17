@@ -9,6 +9,7 @@ const DarkText : FC<TextProps> = ( { children, ...props } ) => (
 		cursor="default"
 		fontSize="lg"
 		opacity={0.6}
+		whiteSpace="nowrap"
 		{...props}
 	>
 		{children}
