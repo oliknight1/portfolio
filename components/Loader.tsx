@@ -3,7 +3,6 @@ import {
 } from '@chakra-ui/react';
 import React, { FC, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
-import AnimatedTitle from './AnimatedTitle';
 
 interface LoaderProps {
 	set_loading: React.Dispatch<React.SetStateAction<boolean>>
@@ -98,7 +97,6 @@ const Loader : FC<LoaderProps> = ( { set_loading } ) => {
 				bg="#20212f"
 			>
 				<TextAnimation />
-
 			</Center>
 		</motion.div>
 	);
