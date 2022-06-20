@@ -1,16 +1,55 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { FC } from 'react';
 import {
-	Text, Heading, Flex, Button,
+	Text, Flex, Button,
 } from '@chakra-ui/react';
-import Subheading from './Subheading';
+import { motion, Variants } from 'framer-motion';
+import AnimatedTitle from './AnimatedTitle';
+import TextBounce from './TextBounce';
 
+const container : Variants = {
+	visible: {
+		transition: {
+			delayChildren: 1,
+			staggerChildren: 0.025,
+		},
+	},
+};
 const Header : FC = () => (
-	<Flex height="100vh" alignItems="center">
+	<Flex height="100vh" alignItems="center" overflowX="hidden">
 		<div>
-			<Subheading mb={4}>Hi, my name is</Subheading>
-			<Heading as="h1" fontWeight="medium" fontSize={[ '6xl', '8xl' ]}>Oli Knight</Heading>
-			<Heading as="h2" fontWeight="medium" fontSize={[ '2xl', '6xl' ]} mb={6} opacity="0.3">Graduate Software Developer</Heading>
+			<TextBounce
+				as={motion.h2}
+				text="Hi, my name is"
+				fontWeight="light"
+				fontSize="3xl"
+				ml={2}
+				mb={2}
+				fontFamily="subheading"
+			/>
+			<motion.div
+				initial="hidden"
+				animate="visible"
+				variants={container}
+			>
+				<div>
+					<AnimatedTitle
+						text="Oli Knight"
+						fontWeight="medium"
+						fontSize={[ '6xl', null, '8xl' ]}
+					/>
+					<AnimatedTitle
+						text="Graduate Software Engineer"
+						fontWeight="medium"
+						fontSize={[ '2xl', null, '6xl' ]}
+						mt={-6}
+						mb={6}
+						opacity="0.3"
+					/>
+
+				</div>
+			</motion.div>
+
 			<Text maxW="xl" mb={8} fontSize="xl" fontWeight="light">
 				I am a graduate <Text as="span" color="brand.red">developer </Text>
 				specializing in creating bespoke web experiences. I work on
