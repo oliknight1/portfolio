@@ -15,6 +15,15 @@ const container : Variants = {
 		},
 	},
 };
+const text : Variants = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: {
+		opacity: 1,
+		transition: { delay: 2 },
+	},
+};
 const Header : FC = () => (
 	<Flex height="100vh" alignItems="center" overflowX="hidden">
 		<div>
@@ -39,36 +48,38 @@ const Header : FC = () => (
 						fontSize={[ '6xl', null, '8xl' ]}
 					/>
 					<AnimatedTitle
-						text="Graduate Software Engineer"
+						text="Graduate Developer"
 						fontWeight="medium"
-						fontSize={[ '2xl', null, '6xl' ]}
+						fontSize={[ '4xl', null, '5xl', '8xl' ]}
 						mt={-6}
-						mb={6}
+						mb={2}
 						opacity="0.3"
 					/>
 
 				</div>
+				<motion.div variants={text} initial="hidden" animate="visible">
+					<Text maxW={[ '100%', null, '3xl' ]} mb={8} fontSize={[ 'lg', null, '2xl' ]} fontWeight="light">
+						I&#39;m a graduate <Text as="span" color="brand.red">developer </Text>
+						specializing in creating bespoke web experiences. I work on
+						both the front and back end with a variety of languages.
+					</Text>
+					<Button
+						onClick={() => {
+							document.querySelector( '#contact' )?.scrollIntoView( {
+								behavior: 'smooth',
+								block: 'start',
+								inline: 'nearest',
+
+							} );
+						}}
+						variant="outline"
+						colorScheme="red"
+					>
+						Get in touch
+					</Button>
+				</motion.div>
 			</motion.div>
 
-			<Text maxW="xl" mb={8} fontSize="xl" fontWeight="light">
-				I am a graduate <Text as="span" color="brand.red">developer </Text>
-				specializing in creating bespoke web experiences. I work on
-				both the front and back end with a variety of languages.
-			</Text>
-			<Button
-				onClick={() => {
-					document.querySelector( '#contact' )?.scrollIntoView( {
-						behavior: 'smooth',
-						block: 'start',
-						inline: 'nearest',
-
-					} );
-				}}
-				variant="outline"
-				colorScheme="red"
-			>
-				Get in touch
-			</Button>
 		</div>
 	</Flex>
 );

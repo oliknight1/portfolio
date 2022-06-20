@@ -33,12 +33,14 @@ const AnimatedTitle : FC<AnimatedTitleProps> = ( { text, ...props } ) => {
 	return (
 		<Heading as="h1" {...props}>
 			{
-				letters.map( ( letter : string ) => (
+				letters.map( ( letter : string, index : number ) => (
 					<span
 						style={{
 							overflow: 'hidden',
 							display: 'inline-block',
 						}}
+						// eslint-disable-next-line react/no-array-index-key
+						key={`${letter}-${index}`}
 					>
 						<motion.span
 							style={{ display: 'inline-block' }}
