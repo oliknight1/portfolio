@@ -73,6 +73,7 @@ const Project : FC<ProjectProps> = ( {
 				hidden: { opacity: 0 },
 			}}
 			w="100%"
+			alignItems="center"
 		>
 			<Box pos="relative">
 				<Tooltip
@@ -96,7 +97,7 @@ const Project : FC<ProjectProps> = ( {
 							<Heading as="h3" fontWeight="light" mb={1}>{title}</Heading>
 							<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>
 						</Box>
-						<Box w="100%" h="100%">
+						<Box w="100%" h="100%" alignItems="center">
 							{
 								image_url
 									&& (
@@ -115,7 +116,7 @@ const Project : FC<ProjectProps> = ( {
 					</Link>
 				</Tooltip>
 			</Box>
-			<Flex flexDir="column" zIndex={1} w={[ '100%', null, '30%' ]}>
+			<Flex flexDir="column" zIndex={1} w={[ '100%', null, null, '30%' ]}>
 				<Box mb="20%" textAlign={reverse ? 'left' : 'right'} display={[ 'none', null, null, 'inline-block' ]}>
 					<Heading as="h3" fontWeight="light" mb={1}>{title}</Heading>
 					<Subheading fontSize="xl" color="brand.red">{subheading}</Subheading>

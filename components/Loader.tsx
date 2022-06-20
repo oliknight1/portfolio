@@ -1,72 +1,16 @@
 import {
-	Center, Heading, VStack,
+	Center,
 } from '@chakra-ui/react';
 import React, { FC, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
+import TextBounce from './TextBounce';
 
 interface LoaderProps {
 	set_loading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const TextAnimation: FC = () => {
-	const container: Variants = {
-		hidden: {
-			opacity: 0,
-		},
-		visible: ( i: number = 1 ) => ( {
-			opacity: 1,
-			transition: { staggerChildren: 0.05, delayChildren: i * 0.5 },
-		} ),
-	};
-
-	const child : Variants = {
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				type: 'spring',
-				damping: 12,
-				stiffness: 200,
-			},
-		},
-		hidden: {
-			opacity: 0,
-			y: 20,
-			transition: {
-				type: 'spring',
-				damping: 12,
-				stiffness: 200,
-			},
-		},
-	};
-
-	return (
-		<VStack>
-			<Heading
-				as={motion.h1}
-				style={{ display: 'flex', overflow: 'hidden' }}
-				variants={container}
-				fontWeight="normal"
-				initial="hidden"
-				animate="visible"
-				exit="hidden"
-				fontSize="6xl"
-			>
-				<motion.p variants={child}>
-					O
-				</motion.p>
-				<motion.p variants={child}>
-					K
-				</motion.p>
-				<motion.p variants={child}>
-					.
-				</motion.p>
-			</Heading>
-		</VStack>
-	);
-};
 const Loader : FC<LoaderProps> = ( { set_loading } ) => {
-	const variants = {
+	const variants : Variants = {
 		hidden: { opacity: 0 },
 		show: {
 			opacity: 1,
@@ -96,7 +40,12 @@ const Loader : FC<LoaderProps> = ( { set_loading } ) => {
 				w="100vw"
 				bg="#20212f"
 			>
-				<TextAnimation />
+				<TextBounce
+					text="OK."
+					as={motion.h1}
+					fontWeight="normal"
+					fontSize="6xl"
+				/>
 			</Center>
 		</motion.div>
 	);
