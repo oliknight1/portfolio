@@ -5,7 +5,7 @@ import MinorProjects from './MinorProjects';
 import Project from './Project';
 import SubheadingDivider from './SubheadingDivider';
 
-const ProjectList : FC = () => {
+const ProjectList: FC = () => {
 	// TODO: FIX THIS ANY
 	const [ projects, set_projects ] = useState( [] );
 	useEffect( () => {
@@ -20,7 +20,7 @@ const ProjectList : FC = () => {
 			<SubheadingDivider>Projects</SubheadingDivider>
 			<VStack spacing={[ 12, 64 ]} mt={[ 12, null, 20 ]}>
 				{
-					projects.map( ( project : any, i ) => (
+					projects.map( ( project: any, i ) => (
 						<Project
 							key={project.id}
 							id={project.id}

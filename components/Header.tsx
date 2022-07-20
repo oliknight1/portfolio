@@ -7,7 +7,7 @@ import { motion, Variants } from 'framer-motion';
 import AnimatedTitle from './AnimatedTitle';
 import TextBounce from './TextBounce';
 
-const container : Variants = {
+const container: Variants = {
 	visible: {
 		transition: {
 			delayChildren: 1,
@@ -15,7 +15,7 @@ const container : Variants = {
 		},
 	},
 };
-const text : Variants = {
+const text: Variants = {
 	hidden: {
 		opacity: 0,
 	},
@@ -24,7 +24,7 @@ const text : Variants = {
 		transition: { delay: 2 },
 	},
 };
-const Header : FC = () => (
+const Header: FC = () => (
 	<Flex height="100vh" alignItems="center" overflowX="hidden">
 		<div>
 			<TextBounce

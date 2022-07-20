@@ -27,7 +27,7 @@ interface ProjectProps {
 	is_last: boolean,
 }
 
-const Project : FC<ProjectProps> = ( {
+const Project: FC<ProjectProps> = ( {
 	id,
 	title,
 	subheading,
@@ -41,7 +41,7 @@ const Project : FC<ProjectProps> = ( {
 	is_last,
 } ) => {
 	const current_breakpoint = useBreakpoint();
-	const is_handheld_device : boolean = [ 'base', 'sm', 'md' ].includes( current_breakpoint as string );
+	const is_handheld_device: boolean = [ 'base', 'sm', 'md' ].includes( current_breakpoint as string );
 
 	const [ image_url, set_image_url ] = useState<string>( '' );
 	const [ technologies, set_technologies ] = useState<any>();
@@ -100,17 +100,17 @@ const Project : FC<ProjectProps> = ( {
 						<Box w="100%" h="100%" alignItems="center">
 							{
 								image_url
-									&& (
-										<Image
-											src={image_url}
-											zIndex={-2}
-											w="fit-content"
-											h="auto"
-											maxH="90vh"
-											borderRadius="lg"
+								&& (
+									<Image
+										src={image_url}
+										zIndex={-2}
+										w="fit-content"
+										h="auto"
+										maxH="90vh"
+										borderRadius="lg"
 
-										/>
-									)
+									/>
+								)
 							}
 						</Box>
 					</Link>
@@ -133,7 +133,10 @@ const Project : FC<ProjectProps> = ( {
 					color="black"
 					fontWeight="light"
 				>
-					<Text fontSize={[ 'lg', null, null, 'xl' ]}>{description}</Text>
+					<Text
+						dangerouslySetInnerHTML={{ __html: description }}
+						fontSize={[ 'lg', null, null, 'xl' ]}
+					/>
 				</Box>
 				<HStack
 					pl={[ 1, null, 2.5 ]}
@@ -143,7 +146,7 @@ const Project : FC<ProjectProps> = ( {
 					mb={[ 2, null, 0 ]}
 				>
 					{
-						technologies?.length > 0 ? technologies.map( ( technology : Technology ) => (
+						technologies?.length > 0 ? technologies.map( ( technology: Technology ) => (
 							<DarkText fontSize={[ 'md', 'sm' ]} key={technology.id}>{technology.name}</DarkText>
 						) ) : null
 					}
@@ -152,17 +155,17 @@ const Project : FC<ProjectProps> = ( {
 					{
 						github_link
 
-								&& <LinkIconButton icon={<GithubIcon w={6} h={6} />} name="GitHub repository link" url={github_link} />
+						&& <LinkIconButton icon={<GithubIcon w={6} h={6} />} name="GitHub repository link" url={github_link} />
 					}
 					{
 						live_link
 
-							&& <LinkIconButton icon={<ExternalLinkIcon w={6} h={6} />} name="Live project link" url={live_link} />
+						&& <LinkIconButton icon={<ExternalLinkIcon w={6} h={6} />} name="Live project link" url={live_link} />
 					}
 				</HStack>
 				{
 					( is_handheld_device && is_cold_boot )
-					&& 						(
+					&& (
 						<>
 							<Divider mt={6} mb={4} />
 							<Text fontStyle="italic">{cold_boot_text}</Text>
@@ -173,7 +176,7 @@ const Project : FC<ProjectProps> = ( {
 			</Flex>
 			{
 				!is_last
-					&& <Divider borderColor="brand.red" w="80%" margin="auto" opacity={0.4} my={8} display={[ 'initial', null, 'none' ]} />
+				&& <Divider borderColor="brand.red" w="80%" margin="auto" opacity={0.4} my={8} display={[ 'initial', null, 'none' ]} />
 			}
 		</Flex>
 

@@ -1,6 +1,6 @@
 import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 
-const config : ThemeConfig = {
+const config: ThemeConfig = {
 	initialColorMode: 'dark',
 	useSystemColorMode: false,
 };
@@ -31,6 +31,9 @@ const theme = extendTheme( {
 			body: {
 				color: colors.brand.white,
 				backgroundColor: colors.brand.purple,
+			},
+			a: {
+				textDecoration: 'underline',
 			},
 		} ),
 	},
